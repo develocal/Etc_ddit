@@ -1,0 +1,79 @@
+== Model2 - jsp ==
+
+* html(jsp) - 	ajax를 통해서 비동기 요청을 보낸다.
+
+
+* controller - 	webService 가 가능한 java file 로 만든다. = servlet file. (= small java file.(웹서비스가 가능하다.))
+		survelt file :  http를 통과해서 request로 요청받고 response를 통해서 응답하는 기능이 있다.
+				아파치톰캣(서버역할)API를 보면 있어.
+		요청을 받는다. 
+		service객체 얻기(:service는 singleton.)
+
+
+* service -	service객체 생성
+		get() : return service객체
+
+		dao객체 얻기(dao도 singleton)
+		dao의 메소드 호출.
+
+
+* dao - 	dao 객체 생성
+		get() : return dao객체
+
+		SqlMapClient객체 얻기(sqlMapClientFactory 에서.(우리가만듦))
+		mapper의 sql문 실행.
+
+
+* view - jsp - 출력만한다.(현재는 json데이터를 생성한다. 실제출력은아니고)
+
+
+
+
+
+*** 서비스있는이유:
+	디비까지안가도되는 단순계산로직은 서비스에서 다오로 안가고 바로 컨트롤러에게준다.
+ 	100%디비작업이면 서비스가 필요없다.
+ 	디비작업+단순계산로직 같이있으면 일관적으로 통일하기위해 서비스를 꼭 거치게 만들어놓은것임.
+
+
+*** dao랑 daoimple 있는이유:
+	하나의 dao에 daoimpl이 항상 1:1이 아님. impl은 여러개올 수 있다. 다형성....
+	각 daoimpl에 있는 공통된 info() 메서드가 있다고치면 
+
+
+
+* 1. vo를 먼저만들어요. config에 vo를 등록하고...
+mapper에서도 쓰고
+
+ 2, vo 만들고 , config 가서 typeAlias , sqlmap resource 집어넣는다.
+
+3. mapper패키지에 xml 파일 만든다. sqlmap resource 에 적은 이름으로.
+
+4. <!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+==> 이거 붙여넣고 namespace 주고, 쿼리작성한다.
+
+5. service 만든다.
+-buyerxml에 select id에 넣은것과 같은 이름으로 메서드 만들으렴. 헷갈리니까.
+
+6. dao에 메서드 붙여넣기.
+ 	메서드들 throws SQLException; 이거해주기.
+	dao가 데이터 직접 접근하니까 . dao에서한다. service에서 해도되긴하지만.
+7. impl들 만들고, controller만든다.
+
+8. controller 만든다.
+일반자바파일 아니고 웹기능이있는 자바파일. 서블릿으로 만든다.
+RequestDispatcher disp = request.getRequestDispatcher("0221/nameList.jsp");
+여기있는 0221/nameList.jsp 이것도만들어야함
+
+
+9. 0221 폴더에 nameList.jsp jsp 만든다.(출력만하면돼!
+
+
+
+
+
+
+
+*** ServletRequest인터페이스 - 밑에 하위로 hrrpServletRequest 인터페이스가있다.

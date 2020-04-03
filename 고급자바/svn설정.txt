@@ -1,0 +1,84 @@
+테스트서버
+https://DESKTOP-FPQQ9GO/svn/projects/201911M/team2/documents
+
+운영서버 
+http://112.220.114.130:10001/svn/projects/201911M/team1/documents
+http://112.220.114.130:10001/svn/projects/201911M/team1/source
+
+
+
+
+
+
+
+
+**SVN 설정??
+
+
+Other 폴더에서 우클릭
+> SVNCheckOut
+> url of repository, checkout directory 설정하기.
+
+url of repository : 서버쪽.주소끝:team4\documents(SemPC)
+checkout directory: 내꺼.주소끝:project\other(저장할곳)
+
+
+> OK
+
+> CheckOut
+( svn폴더가 숨긴채로 생긴다.)
+
+> accept
+
+***커밋
+
+폴더안에서 우클릭
+
+>커밋
+
+>커밋메세지 작성
+
+>확인
+(폴더생김세가 바뀐다. 초록색체크모양이 생김)
+
+*** 이클립스 
+
+이클립스 마켓플레이스
+>검색 svn 
+> 밑에로 내리면 subclipse 4.3.0 > 인스톨
+
+>install Anyway > restart 하면 끝.
+
+문서같은거는 이클립스안키고 토터스만켜도 주고받을 수 있게 되었다.~!
+
+ 
+
+** 이클립스커밋
+> 프로젝트 우클릭
+> share
+> 서버주소카피해서 location url칸에 적고, document 지우고 source 라고 적는다. (team4 / source/AAAserver(프로젝트이름))
+
+> 프로젝트우클릭 > team > commit (커밋메세지적는곳 아래 체크된파일들이 커밋할 파일이란뜻.
+커밋이후에는 프로젝트에 노랑색드럼통 생김.최신버전이라는 뜻. 갈색*는 수정작업이 있고, 서버버전과 달라졌다.=커밋할것이있다.)
+
+**이클립스 업데이트
+방법 1. 임포트 >svn검색 (체크아웃~!ㅇㅁㄴㅇ) > create> 서버주소 (team4 / source) 적는다.
+
+
+방법 2. window > show view > svn 검색 > svn repository 연다. > 콘솔옆에 svn repository창이뜨고 레파지토리주소가 뜬다.
+(주소가뜨는건 한 번 커밋 한 이후. ) > 우클릭 > new > repository add svn
+
+svn창에서 체크아웃누른다.
+
+
+** 충돌
+- 같은 파일 같은 위치를 건드리면 충돌 발생.
+
+1. 충돌난 자바파일에 우클릭 > team > edit conflicts... > 왼쪽 merged 는 최종결과물 쓸 곳. 오른쪽 Theirs 누군가 수정한 것 나옴.
+> 다른부분만 빨강색 박스로씌워진다. 오른쪽칸 윗부분에있는 왼쪽 노랑화살표누르면 합칠 수 있다.
+> 충돌창 닫고, 다시 자바파일에 우클릭 > Mark resolved... > conflicts have been resolved in the file : 해결됐다! 하고 알려준다.
+> 커밋.
+
+** 이력보기
+파일 우클릭 > 팀> show history > 
+
