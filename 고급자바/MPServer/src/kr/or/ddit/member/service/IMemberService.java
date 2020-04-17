@@ -17,6 +17,8 @@ import kr.or.ddit.member.vo.MemberVO;
  */
 
 public interface IMemberService extends Remote {
+	/*remote 를 extends 하고 밑에 매서드들은 remoteException 던질것.*/
+	
 	/**
 	 * MemberVO에 담겨진 자료를 DB에 insert하는 메서드
 	 * 

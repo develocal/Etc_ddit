@@ -46,7 +46,7 @@ public class MemberController implements Initializable {
 		//    사용할 객체를 불러온다.
 		Registry reg;
 		try {
-			reg = LocateRegistry.getRegistry("localhost", 8888);
+			reg = LocateRegistry.getRegistry("192.168.205.10", 8888);
 			IMemberService clientInf = (IMemberService) reg.lookup("memberService");
 			// 이제부터는 불러온 객체의 메서드를 호출해서 사용할 수 있다.
 			memList = clientInf.getAllMemberList();

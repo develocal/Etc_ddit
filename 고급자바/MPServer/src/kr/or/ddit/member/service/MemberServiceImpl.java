@@ -9,6 +9,8 @@ import kr.or.ddit.member.vo.MemberVO;
 
 
 public class MemberServiceImpl extends UnicastRemoteObject implements IMemberService {
+	/*unicastRemoteObject 를 extends 하고 생성자도 remotexception을 던질 것.*/
+	
 	// 사용할 DAO의 객체변수를 선언한다.
 	private MemberDaoImpl memDao;
 	private static MemberServiceImpl service;  // 자기자신 참조변수
