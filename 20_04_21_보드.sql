@@ -10,6 +10,10 @@ SELECT board_seq.currval
 FROM dual;
 
 insert into reply(rno, bno, replytext,replyer,regdate,updatedate )
-select board_seq.nextval, replytext, replyer, regdate, updatedate
+select reply_seq.nextval,bno,replytext, replyer, regdate, updatedate
 from reply;
 commit;
+
+select *
+from board
+where bno=243;
