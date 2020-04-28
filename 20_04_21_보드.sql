@@ -1,6 +1,6 @@
-insert into board(bno, title, writer, content)
-select board_seq.nextval, title, writer, content
-from board;
+insert into board_daejeon(bno, title, writer, content)
+select board_daejeon_seq.nextval, title, writer, content
+from board_daejeon;
 commit;
 
 SELECT board_seq.nextval
