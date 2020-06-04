@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="재직증명서_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1f695cc6-e519-4753-a6ad-82cf26be2a66">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Oracle"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="pwd" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from member where id=$P{id} and pwd=$P{pwd}]]>
+	</queryString>
+	<field name="ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+	</field>
+	<field name="PWD" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PWD"/>
+	</field>
+	<field name="PHONE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PHONE"/>
+	</field>
+	<field name="EMAIL" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EMAIL"/>
+	</field>
+	<field name="PICTURE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PICTURE"/>
+	</field>
+	<field name="ENABLED" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ENABLED"/>
+	</field>
+	<detail>
+		<band height="781">
+			<image>
+				<reportElement x="-2" y="18" width="559" height="739" uuid="e725f313-99ed-4f32-8b04-0e2498e65515"/>
+				<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="177" y="113" width="90" height="20" uuid="9305f2fe-e8d7-448f-ac1c-d2d09d7b1f61"/>
+				<textElement>
+					<font fontName="맑은 고딕" size="12" isBold="true" pdfFontName="MALGUN.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="362" y="130" width="150" height="18" uuid="095790a5-812e-4e6d-84a8-dcf87cfc7d4e"/>
+				<textElement>
+					<font fontName="맑은 고딕" size="12" isBold="true" pdfFontName="MALGUN.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PWD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="220" width="293" height="20" uuid="56236771-2bbe-45db-bdfa-2422d7a36807"/>
+				<textElement>
+					<font fontName="맑은 고딕" size="12" isBold="true" pdfFontName="MALGUN.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PHONE}==null ? "N/A" : $F{PHONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="183" width="335" height="20" uuid="6771a80f-6133-4df6-8e2b-10d4cbe60c41"/>
+				<textElement>
+					<font fontName="맑은 고딕" size="12" isBold="true" pdfFontName="MALGUN.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMAIL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
